@@ -1,6 +1,6 @@
-<%= link_to "Register as Owner", new_user_registration_path({ :user => {:type => 'owner'}} ) %>
-<%= link_to "Register as Employee",  new_user_registration_path({:user => {:type => 'employee'}} ) %>
-<%= link_to "Register as Customer", new_user_registration_path({:user => {:type => 'customer'}} ) %>
+<%= link_to "Register as Owner", new_user_registration_path(:role => 'owner') %>
+<%= link_to "Register as Employee",  new_user_registration_path(:role => 'employee' ) %>
+<%= link_to "Register as Customer", new_user_registration_path(:role => 'customer') %>
 <br>
 <br>
 <%= link_to "Back", root_path %>
