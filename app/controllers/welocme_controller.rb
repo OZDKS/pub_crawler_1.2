@@ -4,6 +4,4 @@ class WelocmeController < ApplicationController
 
   def register_choice
   end
-
-
 end
