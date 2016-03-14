@@ -12,11 +12,13 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to registration_path, notice: "Wystąpił błąd. Prosimy spróbować ponownie"
     end
 
-    user_type.save
-    if user_type.persisted? 
-
+    if user_type.save
       super do
-        resource.user_type = user_type
+        if resource.persisted?
+          resource.user_type = user_type
+        else
+          user_type.destroy
+        end
       end
 
     else
