@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
 
 
 #ASSOCIATIONS
-  belongs_to :owner
-  belongs_to :employee
-  belongs_to :customer
+  belongs_to :user_type, polymorphic: true
 
 end

@@ -1,30 +1,35 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  private
 
-  def sign_up_params
-    params.require(:user).permit(:role, :first_name, :last_name, :email, :password, :password_confirmation)
+  def create
+    if params[:type] == "employee"
+      user_type = Employee.new
+    elsif params[:type] == "customer"
+      user_type = Customer.new
+    elsif params[:type] == "owner"
+      user_type = Owner.new
+    else
+      redirect_to registration_path, notice: "Wystąpił błąd. Prosimy spróbować ponownie"
+    end
+
+    user_type.save
+    if user_type.persisted? 
+
+      super do
+        resource.user_type = user_type
+      end
+
+    else
+      # TODO some error handling
+      redirect_to registration_path, notice: "Wystąpił błąd. Prosimy spróbować ponownie"
+    end
   end
 
-  def after_sign_up
-  	if(User.last.role == "owner")
-  		owner=Owner.create
-  		owner.name="tryyyy"
-  		owner.save
-  		User.last.owner=owner
-  		User.last.save
-  	elsif(User.last.role == "employee")
-  		employee=Employee.create
-  		employee.save
-  		User.last.employee=employee
-  		User.last.save
 
-  	elsif(User.last.role == "customer")
-  		customer=Customer.create
-  		customer.save
-  		User.last.customer=customer
-  		User.last.save
-  	end
+  protected
+
+  def sign_up_params
+    params.require(:user).permit( :first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 end

@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!([
+  {email: "a@a.com", encrypted_password: "$2a$10$NF3RSNSPcH1WcAb8aRt1Yu0EfZ.CxJXSOPMuyxbj.GUR90Hes0I2u", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-03-14 15:29:20", last_sign_in_at: "2016-03-14 15:29:20", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", role: "owner", user_type_id: nil, user_type_type: nil},
+  {email: "a@b.pl", encrypted_password: "$2a$10$Vx9ze2BU7lvoK.Ee/F7sguDBD4eO7DmkeNpU6Bm2lV3fSjxw2M97W", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: nil, user_type_id: nil, user_type_type: nil},
+  {email: "aaa@a.pl", encrypted_password: "$2a$10$QSueKzVxnsAzTISNmhNhM.bVhYTeeabsWCr.UIU2FFnYdTYw/n3hy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: nil, user_type_id: nil, user_type_type: nil},
+  {email: "aaa@aa.pl", encrypted_password: "$2a$10$Lx4r6W4CdUsHZjgYsLrDkOyivvjJ6CQSqvknH8Ttz8OgwH6u50w/u", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: nil, user_type_id: nil, user_type_type: nil},
+  {email: "aaa@aaa.pl", encrypted_password: "$2a$10$lpXfXqSZ0gFhRME7FUKZ3eXTvYgr5qDz/NrkJgRqi3Tw0ciz4dide", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-03-14 16:35:04", last_sign_in_at: "2016-03-14 16:35:04", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", role: nil, user_type_id: nil, user_type_type: nil}
+])
