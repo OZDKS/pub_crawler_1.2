@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :locals
+  get 'users/show'
+
   devise_for :users, :controllers => {registrations: 'registrations'}
   #typo!!
   root 'welocme#index'
+  get '/users/:id' => 'users#show', :as => :user
   get '/register' => 'welocme#register_choice'
 
   # The priority is based upon order of creation: first created -> highest priority.
