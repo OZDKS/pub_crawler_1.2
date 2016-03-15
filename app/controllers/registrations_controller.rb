@@ -1,15 +1,26 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def new
+    if !["employee","customer","owner"].include?(params[:type])
+      flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
+      redirect_to :controller=>'welocme', :action=>'register_choice'
+      return
+    end
+    super
+  end
+
 
   def create
     if params[:type] == "employee"
-      user_type = Employee.new
+      user_type = Employee.new()
     elsif params[:type] == "customer"
-      user_type = Customer.new
+      user_type = Customer.new()
     elsif params[:type] == "owner"
-      user_type = Owner.new
+      user_type = Owner.new({params[:user_type_attributes]})
     else
-      redirect_to registration_path, notice: "Wystąpił błąd. Prosimy spróbować ponownie"
+      flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
+      redirect_to :controller=>'welocme', :action=>'register_choice'
+      return
     end
 
     if user_type.save
@@ -23,7 +34,9 @@ class RegistrationsController < Devise::RegistrationsController
 
     else
       # TODO some error handling
-      redirect_to registration_path, notice: "Wystąpił błąd. Prosimy spróbować ponownie"
+      flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
+      redirect_to :controller=>'welocme', :action=>'register_choice'
+      return
     end
   end
 

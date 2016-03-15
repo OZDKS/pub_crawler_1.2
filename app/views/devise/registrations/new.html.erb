@@ -7,7 +7,34 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+  
+    <%= f.fields_for :user_type_attributes do |u| %>
+      <% if params[:type] == "owner" %>
+        <div class="field">
+          <%= u.label :name %><br />
+          <%= u.text_field :name %>
+        </div>
+        <div class="field">
+          <%= u.label :surname %><br />
+          <%= u.text_field :surname %>
+        </div>
+      <% elsif params[:type] == "employee" %>
+        <div class="field">
+          <%= u.label :name %><br />
+          <%= u.text_field :name %>
+        </div>
+        <div class="field">
+          <%= u.label :surname %><br />
+          <%= u.text_field :surname %>
+        </div>
+      <% elsif params[:type] == "customer" %>
+        <div class="field">
+          <%= u.label :username %><br />
+          <%= u.text_field :username %>
+        </div>
 
+      <% end %>
+    <% end %>
 
 
   <div class="field">
