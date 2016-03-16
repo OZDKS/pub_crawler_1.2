@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My locals: </h1>
+
+<%= link_to 'New Local', new_local_path %>
+<table>
+  <thead>
+    <tr>
+      <% #<th>Owner</th> ?? %>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.locals.each do |local| %>
+      <tr>
+        <% #here was some strage owner field %>
+        <td><%= local.name %></td>
+        <td><%= local.description %></td>
+        <td><%= link_to 'Show', local %></td>
+        <td><%= link_to 'Edit', edit_local_path(local) %></td>
+        <td><%= link_to 'Destroy', local, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
