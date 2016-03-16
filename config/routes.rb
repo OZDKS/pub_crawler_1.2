@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations'}
   #typo!!
   root 'welocme#index'
-  # get '/users/:id' => 'users#show', :as => :user
   get '/register' => 'welocme#register_choice'
   get '/profile' => 'users#profile'
 
