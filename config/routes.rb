@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations'}
   #typo!!
   root 'welocme#index'
-  get '/users/:id' => 'users#show', :as => :user
+  # get '/users/:id' => 'users#show', :as => :user
   get '/register' => 'welocme#register_choice'
+  get '/profile' => 'users#profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @user.locals.each do |local| %>
+    <% @user.user_type.locals.each do |local| %>
       <tr>
         <% #here was some strage owner field %>
         <td><%= local.name %></td>

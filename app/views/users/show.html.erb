@@ -1,10 +1,1 @@
-<h2>User Profile</h2>
 <h4><%=@user.user.email %></h4>
-
-<% if @user.user.user_type_type == "Owner" %>
-	<%= render 'owner_profile' %>
-<% elsif @user.user.user_type_type == "Employee" %>
-	<%= render 'employee_profile' %>
-<% elsif @user.user.user_type_type == "Customer" %>
-	<%= render 'customer_profile' %>
-<%end%>

@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
     elsif params[:type] == "customer"
       user_type = Customer.new()
     elsif params[:type] == "owner"
-      user_type = Owner.new({params[:user_type_attributes]})
+      user_type = Owner.new()
     else
       flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
       redirect_to :controller=>'welocme', :action=>'register_choice'
