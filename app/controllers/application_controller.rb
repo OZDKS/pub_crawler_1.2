@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 
-# Universal auth for each role
-  # def auth_owner
-  # 	authorize self, :is_owner?
-  # end
 
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
