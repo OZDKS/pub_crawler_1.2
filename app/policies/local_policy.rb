@@ -28,6 +28,4 @@ class LocalPolicy < ApplicationPolicy
   def destroy?
   	belongs_to?
   end
-
-
 end

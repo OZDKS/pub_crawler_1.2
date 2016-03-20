@@ -5,6 +5,7 @@ class LocalsController < ApplicationController
   # before_action :auth_owner, only: [:new, :edit, :update, :destroy]
 
   def show
+    authorize Local
   end
 
   def new 

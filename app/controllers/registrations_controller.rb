@@ -40,7 +40,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-
   protected
 
   def sign_up_params
