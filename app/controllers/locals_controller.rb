@@ -4,8 +4,13 @@ class LocalsController < ApplicationController
   # Way of defining ACLs, TODO create universally accesible auth_(user_type) in application controller
   # before_action :auth_owner, only: [:new, :edit, :update, :destroy]
 
+
+  def index
+    @locals = Local.all
+  end
+
   def show
-    authorize Local
+    
   end
 
   def new 
@@ -38,9 +43,9 @@ class LocalsController < ApplicationController
   end
 
   def destroy
-    authorize Local
+    authorize @local
     @local.destroy
-    redirect_to current_user, notice: 'Local was successfully destroyed.'
+    redirect_to '/profile', notice: 'Local was successfully destroyed.'
   end
 
   private

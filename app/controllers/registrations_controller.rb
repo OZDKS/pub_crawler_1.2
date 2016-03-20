@@ -2,16 +2,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     if !["employee","customer","owner"].include?(params[:type])
-      flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
+      flash[:notice]="Invalid parameter"
       redirect_to :controller=>'welocme', :action=>'register_choice'
       return
     end
     super
   end
 
-
   def create
-
 
     if params[:type] == 'employee'
       user_type = Employee.new sign_up_params[:user_type_attributes]
@@ -19,13 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
       user_type = Customer.new sign_up_params[:user_type_attributes]
     elsif params[:type] == "owner"
       user_type = Owner.new sign_up_params[:user_type_attributes]
-      else
-      flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
-      redirect_to :controller=>'welocme', :action=>'register_choice'
-      return
     end
-
-
 
     if user_type.save
       super do
@@ -38,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     else
       # TODO some error handling
-      flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
+      flash[:notice]="Unable to save user_type instance"
       redirect_to :controller=>'welocme', :action=>'register_choice'
       return
     end

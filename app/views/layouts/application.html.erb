@@ -8,14 +8,7 @@
 </head>
 <body>
 
-<%= link_to "Home", root_path %>
-<% if user_signed_in? %>
-  	<%= link_to "Sign Out",  destroy_user_session_path, method: :delete %> 
-  	<%= link_to "Profile", '/profile' %>
-<% else %>
-  <%= link_to "Sign Up", '/register' %>  
-  <%= link_to "Sign In",  new_user_session_path %>
-<% end %>
+<%= render 'layouts/navigation_bar' %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

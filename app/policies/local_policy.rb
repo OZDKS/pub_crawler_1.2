@@ -2,7 +2,7 @@ class LocalPolicy < ApplicationPolicy
 
 
 	def belongs_to?
-		@user and @user.user_type_type == "Owner" and @user.user_type_id == @record.owner_id
+		@user and @user.user_type_type == "Owner" and @user.user_type_id == @local.owner_id
 	end
 
 
