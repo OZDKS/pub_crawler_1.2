@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-    # virtual attributes to get form fields for user_type
-    attr_accessor	:user_type_attributes
+	# virtual attributes to get form fields for user_type
+	attr_accessor	:user_type_attributes
 
 	#ASSOCIATIONS
 	belongs_to :user_type, polymorphic: true

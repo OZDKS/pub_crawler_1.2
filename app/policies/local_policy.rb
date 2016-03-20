@@ -1,12 +1,10 @@
 class LocalPolicy < ApplicationPolicy
 
+
 	def belongs_to?
-		@user.user_type_type == "Owner" and @user.user_type_id == @record.owner_id
+		@user and @user.user_type_type == "Owner" and @user.user_type_id == @record.owner_id
 	end
 
-	def is_owner?
-		@user.user_type_type == "Owner"
-	end
 
 	# def initialize(user, local)
  #    	@user = user
@@ -18,7 +16,7 @@ class LocalPolicy < ApplicationPolicy
   end
 
   def create?
-    is_owner?
+    owner?
   end
 
   def update?

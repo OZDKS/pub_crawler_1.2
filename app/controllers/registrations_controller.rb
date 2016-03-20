@@ -11,17 +11,21 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def create
-    if params[:type] == "employee"
-      user_type = Employee.new()
+
+
+    if params[:type] == 'employee'
+      user_type = Employee.new sign_up_params[:user_type_attributes]
     elsif params[:type] == "customer"
-      user_type = Customer.new()
+      user_type = Customer.new sign_up_params[:user_type_attributes]
     elsif params[:type] == "owner"
-      user_type = Owner.new()
-    else
+      user_type = Owner.new sign_up_params[:user_type_attributes]
+      else
       flash[:notice]="Wystąpił błąd. Prosimy spróbować ponownie"
       redirect_to :controller=>'welocme', :action=>'register_choice'
       return
     end
+
+
 
     if user_type.save
       super do
@@ -43,7 +47,17 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def sign_up_params
-    params.require(:user).permit( :first_name, :last_name, :email, :password, :password_confirmation)
+    if params[:type] == 'employee'
+      attribs =[:name,:surname]
+    elsif params[:type] == 'customer'
+      attribs = [:username]
+    elsif params[:type] == 'owner'
+      attribs = [:name, :surname]
+    else
+      return
+    end
+    params.require(:user).permit( :email, :password, :password_confirmation, :user_type_attributes =>attribs )
+
   end
 
 end

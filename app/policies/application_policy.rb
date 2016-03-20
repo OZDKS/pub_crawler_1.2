@@ -1,6 +1,23 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  def owner?
+    @user && @user.user_type_type == "Owner"
+  end
+
+  def employee?
+    @user && @user.user_type_type == "Employee"
+  end
+
+  def customer?
+    @user && @user.user_type_type == "Customer"
+  end
+
+  def loggged?
+    @user
+  end
+
+
   def initialize(user, record)
     @user = user
     @record = record
