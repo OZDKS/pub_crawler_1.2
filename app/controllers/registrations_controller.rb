@@ -17,6 +17,10 @@ class RegistrationsController < Devise::RegistrationsController
       user_type = Customer.new sign_up_params[:user_type_attributes]
     elsif params[:type] == "owner"
       user_type = Owner.new sign_up_params[:user_type_attributes]
+    else
+      flash[:notice]="Invalid parameter"
+      redirect_to :controller=>'welocme', :action=>'register_choice'
+      return
     end
 
     if user_type.save
