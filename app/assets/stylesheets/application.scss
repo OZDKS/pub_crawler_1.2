@@ -14,3 +14,13 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+//for welcome controller index action
+
+#clue_text{
+	margin-top : 30px;
+	margin-bottom : 30px;
+	text-align : center;
+}
+

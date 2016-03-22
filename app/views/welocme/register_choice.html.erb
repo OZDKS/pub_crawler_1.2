@@ -1,6 +1,24 @@
-<%= link_to "Register as Owner", new_user_registration_path(:type => 'owner') %>
-<%= link_to "Register as Employee",  new_user_registration_path(:type => 'employee' ) %>
-<%= link_to "Register as Customer", new_user_registration_path(:type => 'customer') %>
+<div class="container" style="margin-bottom : 60px; margin-left : 180px;">
+  <div class="row">
+    <div class="col-sm-4">
+       <a href="/users/sign_up?type=owner">Register as Owner</a>
+    </div>
+    <div class="col-sm-4">
+       <a href="/users/sign_up?type=employee">Register as Employee</a> 
+    </div>
+    <div class="col-sm-4">
+       <a href="/users/sign_up?type=employee">Register as Employee</a> 
+    </div>
+  </div>
+</div>
 <br>
 <br>
 <%= link_to "Back", root_path %>
+
+
+
+
+
+
+
+
