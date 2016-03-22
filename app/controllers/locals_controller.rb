@@ -6,7 +6,7 @@ class LocalsController < ApplicationController
 
 
   def index
-    @locals = Local.all
+    @locals = current_user.user_type.locals.all
   end
 
   def show

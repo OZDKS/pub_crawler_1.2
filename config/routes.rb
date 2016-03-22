@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :locals
+  resources :locals do
+    resources :events
+  end
+
   devise_for :users, :controllers => {registrations: 'registrations'}
   #typo!
   root 'welocme#index'
