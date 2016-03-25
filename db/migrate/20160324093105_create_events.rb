@@ -1,0 +1,12 @@
+class CreateEvents < ActiveRecord::Migration
+  def change
+    create_table :events do |t|
+      t.string :name
+      t.string :description
+      t.column :start_t, :datetime
+      t.column :end_t, :datetime
+      t.references :local, index: true, foreign_key: true
+      t.timestamps null: false
+    end
+  end
+end
