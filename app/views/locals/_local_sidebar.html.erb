@@ -1,0 +1,15 @@
+  <div id='cssmenu'>
+  <%= link_to "< Back to user profile", '/profile' %>
+  <%= link_to @local.name, @local, {:style=>'text-align: center;'}%>
+
+  <div class="pull-left image">
+   <img src="/assets/bar1.png" class="img-circle" alt="User Image">
+  </div>
+<ul>
+   <li><a href='/'><span>Home</span></a></li>
+   <li><a href='#'><span>Employees</span></a></li>
+   <li><%= link_to "Events", local_events_path(@local) %></li>
+   <li><a href='#'><span>Traffic</span></a></li>
+   <li class='last'><a href='#'><span>Edit local</span></a></li>
+</ul>
+</div> 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href='https://fonts.googleapis.com/css?family=Lobster|Poiret+One|Open+Sans+Condensed:300,300italic,700|Catamaran:400,500,300,200|Rozha+One' rel='stylesheet' type='text/css'>
   <title>PubCrawler12</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,11 +11,17 @@
 
 <%= render 'layouts/navigation_bar' %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="container">
+	
+		<% if !notice.blank? %>
+			<p class="notice"><%= notice %></p>
+		<%end%>
+		<%if !alert.blank? %>
+			<p class="alert"><%= alert %></p>
+		<%end%>
+			<%= yield %>
+</div>
 
-
-<%= yield %>
 
 </body>
 </html>

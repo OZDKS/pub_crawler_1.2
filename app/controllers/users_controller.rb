@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-# error here
-# before_filter :authenticate_user
+# error here?
+ before_action :authenticate_user!
 
   def profile
   	@user = current_user

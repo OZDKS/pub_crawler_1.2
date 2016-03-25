@@ -1,0 +1,23 @@
+<div id='cssmenu'>
+  
+  <div style="color:white; text-align:center;"><p>Hello <%= current_user.user_type.name %>! </p></div>
+
+  <div class="pull-left image">
+   <img src="/assets/user2-160x160.jpg" class="img-circle" alt="User Image">
+  </div>
+<ul>
+   <li><a href='/'><span>Home</span></a></li>
+   <li class='active has-sub'><a href='/locals'><span>My locals</span></a>
+      <ul>
+           <% current_user.user_type.locals.each do |local| %>
+             <li class='last'>
+                <%= link_to local.name, local %>                 
+              </li>
+          <%end%>      
+      </ul>
+   </li>
+   <li><a href='#'><span>Employees</span></a></li>
+   <li><a href='#'><span>Organizer</span></a></li>
+   <li class='last'><a href='#'><span>Edit profile</span></a></li>
+</ul>
+</div> 
