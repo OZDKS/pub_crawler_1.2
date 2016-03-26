@@ -1,6 +1,5 @@
-<% if @user.user_type_type == "Owner" %>
-	<%= render 'owner_profile' %>
-<% elsif @user.user_type_type == "Employee" %>
+
+<% if @user.user_type_type == "Employee" %>
 	<%= render 'employee_profile' %>
 <% elsif @user.user_type_type == "Customer" %>
 	<%= render 'customer_profile' %>
