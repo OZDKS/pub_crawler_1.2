@@ -1,5 +1,8 @@
 class Local < ActiveRecord::Base
-  belongs_to :owner
-  has_many :employees
-  has_many :events
+  	belongs_to :owner
+ 	has_many :employees
+  	has_many :events
+
+	geocoded_by :address
+	after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 end

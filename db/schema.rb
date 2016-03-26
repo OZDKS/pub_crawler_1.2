@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324093105) do
+ActiveRecord::Schema.define(version: 20160326010249) do
 
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20160324093105) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "locals", ["owner_id"], name: "index_locals_on_owner_id"
